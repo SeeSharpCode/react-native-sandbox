@@ -1,37 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { createStackNavigator } from 'react-navigation';
+import HomeScreen from './src/components/HomeScreen';
+import Fundamentals from './src/components/Fundamentals';
+import TicTacToe from './src/components/TicTacToe';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet,  View, StatusBar} from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+const RootStack = createStackNavigator({
+  HomeScreen,
+  Fundamentals,
+  TicTacToe
+});
 
 export default class App extends Component {
   render() {
-    return (
-      <Container>
-        <Header>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-        </Header>
-        <Content>
-          <Text>
-            This is Content Section
-          </Text>
-        </Content>
-      </Container>
-    );
+    return <RootStack />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'red',
-    height: (Platform.OS === 'ios') ? StatusBar.height : 0
-  }
-});
